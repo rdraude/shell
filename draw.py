@@ -1,6 +1,7 @@
 import turtle
 
-length = 200
+_LENGTH = 22
+_SCALE = 0.05
 
 def fib(n, dp_list):
     """
@@ -19,10 +20,25 @@ def fib(n, dp_list):
 
 
 def main():
-    dp_list = [0] * (length + 1)
-    #add in turtle drawing
-    for i in range(1, length+1):
+    """
+    Writes the fibonacci shell graphics
+    """
+    dp_list = [0] * (_LENGTH + 1)
+    screen = turtle.Screen()
+    screen.setup(width=800, height=600)
+    screen.bgcolor("white")
+    draw = turtle.Turtle()
+    draw.color("blue")
+    draw.speed(2)
+    draw.shape("turtle")
+    draw.width(10)
+    #Fibonacci loop:
+    for i in range(1, _LENGTH+1):
         fib(i, dp_list)
+        draw.forward(dp_list[i] * _SCALE)
+        draw.right(90)
+        screen.update()
+    screen.exitonclick()
 
 if __name__ == "__main__":
     main()

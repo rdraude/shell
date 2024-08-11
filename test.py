@@ -3,9 +3,6 @@ from draw import fib
 
 class TestFibonacci(unittest.TestCase):
 
-    # def setUp(self):
-    #     self.dp_list = [0] * 201 
-
     def test_base_fib(self):
         self.dp_list = [0] * 3
         self.assertEqual(fib(1, self.dp_list), 1)
